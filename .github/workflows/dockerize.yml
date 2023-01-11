@@ -23,8 +23,8 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ${{ DEV_IMAGE }}
+          tags: ${{ env.DEV_IMAGE }}
       -
         name: Test
         run: |
-          docker run --rm -it --net=host -v $PWD/src:/src -w /src ${{ DEV_IMAGE }} brownie test
+          docker run --rm -it --net=host -v $PWD/src:/src -w /src ${{ env.DEV_IMAGE }} brownie test
