@@ -5,6 +5,9 @@ on:
     branches:
       - 'main'
 
+env:
+  DEV_IMAGE: ph1t0/defi-dev:latest
+
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -20,4 +23,8 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ph1t0/defi-dev:latest
+          tags: ${{ DEV_IMAGE }}
+      -
+        name: Test
+        run: |
+          docker run --rm -it --net=host -v $PWD/src:/src -w /src ${{ DEV_IMAGE }} brownie test
