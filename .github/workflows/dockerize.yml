@@ -27,4 +27,4 @@ jobs:
       -
         name: Test
         run: |
-          docker run --rm -it --net=host -v $PWD/src:/src -w /src ${{ env.DEV_IMAGE }} brownie test
+          docker run --rm ${{ env.DEV_IMAGE }} brownie test
