@@ -15,4 +15,6 @@ RUN pip3 install --no-cache eth-brownie\
 RUN npm install -g ganache-cli
 
 COPY src /src
+RUN cd /src \
+ && brownie compile
 WORKDIR /src
