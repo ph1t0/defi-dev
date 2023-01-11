@@ -1,0 +1,9 @@
+services:
+  brownie:
+    container_name: defi_dev
+    image: ph1t0/defi-dev:latest
+    network_mode: host
+    volumes:
+    - $PWD/src:/src
+    working_dir: /src
+version: '3.8'
