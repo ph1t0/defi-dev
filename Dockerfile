@@ -13,3 +13,6 @@ RUN pip3 install --no-cache eth-brownie\
  && brownie pm install OpenZeppelin/openzeppelin-contracts@4.8.0
 
 RUN npm install -g ganache-cli
+
+COPY src /src
+WORKDIR /src
